@@ -56,6 +56,30 @@ var elimination = function(){ // elimination function works by checking if any e
       rick.stateLogic[q] = 0;
       walter.stateLogic[q] = 0;
     }
+    if(ellen.eventLogic[q] === 1){
+      ellen.eventLogic.fill(0);
+      ellen.eventLogic.splice(q,1,1);
+      ellen.event = eventArr[q];
+      heather.eventLogic[q] = 0;
+      rick.eventLogic[q] = 0;
+      walter.eventLogic[q] = 0;
+    }
+    if(ellen.relationLogic[q] === 1){
+      ellen.relationLogic.fill(0);
+      ellen.relationLogic.splice(q,1,1);
+      ellen.relation = relationshipsArr[q];
+      heather.relationLogic[q] = 0;
+      rick.relationLogic[q] = 0;
+      walter.relationLogic[q] = 0;
+    }
+    if(ellen.dayLogic[q] === 1){
+      ellen.dayLogic.fill(0);
+      ellen.dayLogic.splice(q,1,1);
+      ellen.day = dayArr[q];
+      heather.dayLogic[q] = 0;
+      rick.dayLogic[q] = 0;
+      walter.dayLogic[q] = 0;
+    }
   }
 }
 
@@ -67,10 +91,34 @@ var elimination = function(){ // elimination function works by checking if any e
 // Walter’s event was one day earlier than the person whose last name was DeForest but after the person who lived in Washington. The anniversary was held in Montana.
 
 var clue1 = function(){
-  ellen.lastNameLogic = [0,0,1,0]; // Fairview
+  ellen.lastNameLogic[2] = 1; // Fairview
+}
+
+var clue2 = function(){
+  rick.lastNameLogic[0] = 0; // not Bartley
+  rick.dayLogic[3] = 1; // Saturday
+}
+
+var clue3 = function(){
+
+}
+
+var clue4 = function(){
+
+}
+
+var clue5 = function(){
+  heather.stateLogic[2] = 0; // not Texas
+  heather.relationLogic[3] = 1; // sister
+  heather.eventLogic[0] = 0; // not Wednesday
+}
+
+var clue6 = function(){
+  
 }
 
 clue1();
+clue2();
 elimination();
 
 console.log(ellen, heather, rick, walter);
