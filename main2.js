@@ -43,10 +43,12 @@ var elimination = function(){ // elimination function works by checking if any e
     if(ellen.lastNameLogic[q] === 1){
       ellen.lastNameLogic.fill(0);
       ellen.lastNameLogic.splice(q,1,1);
+      ellen.lastName = lastNameArr[q];
     }
     if(ellen.stateLogic[q] === 1){
       ellen.stateLogic.fill(0);
       ellen.stateLogic.splice(q,1,1);
+      ellen.state = statesArr[q];
     }
   }
 }
