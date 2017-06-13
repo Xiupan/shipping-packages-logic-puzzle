@@ -41,14 +41,20 @@ var walter = new Person('Walter', '', '', '', '', '', 'He');
 var elimination = function(){ // elimination function works by checking if any element in the 'Logic Arrays' is 1, if so, set all other values to 0.
   for(let q = 0; q < 4; ++q){
     if(ellen.lastNameLogic[q] === 1){
-      ellen.lastNameLogic.fill(0);
-      ellen.lastNameLogic.splice(q,1,1);
-      ellen.lastName = lastNameArr[q];
+      ellen.lastNameLogic.fill(0); // fills whole logic array with 0
+      ellen.lastNameLogic.splice(q,1,1); // splices 1 back in to the array where it was
+      ellen.lastName = lastNameArr[q]; // using q index, sets lastName according to the q index of lastNameArr!
+      heather.lastNameLogic[q] = 0; // because this last name is now taken, it cannot be true for the others
+      rick.lastNameLogic[q] = 0;
+      walter.lastNameLogic[q] = 0;
     }
     if(ellen.stateLogic[q] === 1){
       ellen.stateLogic.fill(0);
       ellen.stateLogic.splice(q,1,1);
       ellen.state = statesArr[q];
+      heather.stateLogic[q] = 0;
+      rick.stateLogic[q] = 0;
+      walter.stateLogic[q] = 0;
     }
   }
 }
